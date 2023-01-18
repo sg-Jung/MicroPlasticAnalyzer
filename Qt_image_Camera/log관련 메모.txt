@@ -1,0 +1,18 @@
+Set Reset 버튼과 관련된 변수
+
+
+Mat m_processImg;  // 인덱스 바꿀 때 이전까지의 수행했던 영상처리 저장하는 용도, m_image에서 그 다음 영상처리를 수행하게 됨
+
+m_originImg
+m_processImg : 현재까지의 영상처리 (Set 했을 때 순서대로 적용하게 됨)
+m_image : m_processImg + 현재 선택한 영상처리
+
+영상처리된 목록들은 정수형 벡터로 관리
+선택한 인덱스 + 추가 옵션(슬라이드 Value, 체크 박스 여부 등등)
+vector<int> current_log : 현재 수행되고 있는 영상처리를 저장해놓은 벡터
+vector<vector<int>> total_log : Set 했을 때의 영상처리를 전부 저장해놓은 벡터
+
+void readTotallog() : 현재 set한 영상처리에 대해 m_processImg가 모두 수행하기
+void writeCurrentlog(int index) : total_log에 current_log를 추가하기 (Set버튼 눌렀을 때)
+
+알고리즘 추가할 때 algorithm, readTotallog(), writeCurrentlog(int index) 수정해야함
